@@ -6,20 +6,20 @@ const overlay = document.querySelector('.overlay');
 
 /* Looping through images */
 
-for (let i=1; i<=5; i++) {
+for (let i=0; i<5; i++) {
     const newImage = document.createElement('img');
-    newImage.setAttribute('src','images/pic'+i+'.jpg');
+    newImage.setAttribute('src','images/pic'+(i+1)+'.jpg');
     thumbBar.appendChild(newImage);
-    newImage.onclick = function(e) {
-        displayedImage.src = e.target.src;
+    newImage.onclick = function(x) {
+        displayedImage.src = x.target.src;
     }
 }
 
 /* Wiring up the Darken/Lighten button */
 
 btn.onclick = function() {
-    const btnClass = btn.getAttribute('class');
-    if (btnClass === 'dark') {
+    const btnCls = btn.getAttribute('class');
+    if (btnCls === 'dark') {
         btn.setAttribute('class','light');
         btn.textContent = 'Lighten';
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
